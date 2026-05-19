@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions 2026-27 | Oak Bridge School, Macherla</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-main: #334155;
+            --bg-light: #f8fafc;
+            --amber: #d97706;
+            --success: #059669;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Top Bar Contact Strip */
+        .top-banner {
+            background-color: var(--primary);
+            color: #f1f5f9;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 8px 16px;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+        }
+
+        /* Layout Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Sticky Header Elements */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .logo p {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        .nav-phone {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.05rem;
+            border: 2px solid #dbeafe;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-phone:hover {
+            background-color: #eff6ff;
+        }
+
+        /* Hero Split Framing */
+        .hero-split {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .hero-info {
+            flex: 1 1 500px;
+            padding-top: 20px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #fef3c7;
+            color: var(--amber);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .hero-info h2 {
+            font-size: 2.75rem;
+            color: var(--primary);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-info p {
+            font-size: 1.125rem;
+            color: #475569;
+            margin-bottom: 32px;
+        }
+
+        .rating-box {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .rating-stars {
+            color: #f59e0b;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .rating-text h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .rating-text p {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* Admissions Interactive Form Card */
+        .form-card {
+            flex: 1 1 400px;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .form-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .form-card > p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--primary);
+            background-color: #f8fafc;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 213, 0.15);
+        }
+
+        .submit-button {
+            width: 100%;
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Pillars Value Cards Section */
+        .pillars-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+            margin-top: 80px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 48px;
+            letter-spacing: -0.02em;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .info-card {
+            background-color: var(--bg-light);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 32px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-card h4 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #475569;
+        }
+
+        .info-card ul li::before {
+            content: "?";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Parent Testimonials Section */
+        .reviews-section {
+            padding: 80px 0;
+            background-color: #f1f5f9;
+        }
+
+        .review-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: #334155;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Clean Matrix Footer */
+        footer {
+            background-color: var(--primary);
+            color: #94a3b8;
+            padding: 60px 0 40px 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h5 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-col p {
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .hero-info h2 { font-size: 2.2rem; }
+            .form-card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        ?? Location: Behind R&B Bungalow, 13th Ward, Macherla, Andhra Pradesh 522426
+    </div>
+
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <h1>Oak Bridge School</h1>
+                <p>Nurturing Discipline, Culture & Intellect</p>
+            </div>
+            <a href="tel:+919703281549" class="nav-phone">?? +91 97032 81549</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="hero-split">
+            <div class="hero-info">
+                <span class="status-badge">Admissions Open 2026 - 2027</span>
+                <h2>An Exceptional Foundation Worthy For Your Child</h2>
+                <p>Oak Bridge School combines deep academic discipline, interactive digital classrooms, comprehensive sports frameworks, and active cultural programs to offer a highly motivating learning ecosystem tailored perfectly for middle-class parents.</p>
+                
+                <div class="rating-box">
+                    <div class="rating-stars">?????</div>
+                    <div class="rating-text">
+                        <h4>5.0 Outstanding Rating</h4>
+                        <p>Based on verified parent & visitor reviews</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h3>Admissions Enquiry</h3>
+                <p>Submit details below to initiate standard application procedures.</p>
+                
+                <form id="enquiryForm" onsubmit="processApplicationForm(event)">
+                    <div class="form-group">
+                        <label for="parent_name">Parent / Guardian Full Name</label>
+                        <input type="text" id="parent_name" class="form-control" placeholder="e.g. Rama Reddy" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobile_number">Mobile Contact Number</label>
+                        <input type="tel" id="mobile_number" class="form-control" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student_name">Student Full Name</label>
+                        <input type="text" id="student_name" class="form-control" placeholder="e.g. Sravan Prasad" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="target_grade">Target Learning Level</label>
+                        <select id="target_grade" class="form-control" required>
+                            <option value="">-- Choose Class --</option>
+                            <option value="Kindergarten">Kindergarten (Nursery / LKG / UKG)</option>
+                            <option value="Primary">Primary School (Class 1 to 5)</option>
+                            <option value="High School">High School (Class 6 to 10)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-button">Submit Application Details</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="pillars-section">
+        <div class="container">
+            <h3 class="section-title">The Oak Bridge Educational Ecosystem</h3>
+            <div class="grid-3">
+                <div class="info-card">
+                    <h4>Why Oak Bridge?</h4>
+                    <ul>
+                        <li>Highly structured, disciplined environment ensuring an excellent peer culture.</li>
+                        <li>Supportive & exceptionally friendly faculty framework.</li>
+                        <li>Incredibly worthy & accessible for modern families.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Modern Curriculum</h4>
+                    <ul>
+                        <li>Fully equipped Interactive Digital Classrooms.</li>
+                        <li>Practical concepts-driven study roadmaps.</li>
+                        <li>Comprehensive individual guidance & child progression metrics.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Co-Curricular Focus</h4>
+                    <ul>
+                        <li>Dynamic cultural activities & traditional talent integration.</li>
+                        <li>Structured sports matching & competitive outdoor games.</li>
+                        <li>Confidence building & regular peer presentation panels.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="container">
+            <h3 class="section-title">Verified Parent & Visitor Sentiments</h3>
+            <div class="grid-3">
+                <div class="review-card">
+                    <p class="review-text">"One of the best school in macherla it's very worthy for middle class parents... I see the people of faculty and students very disciplined... Here we see culture activities sports games digital classes etc..etc"</p>
+                    <div class="review-author">— Tedla Sravan Vara Prasad</div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Oak Bridge School offers a supportive and motivating environment for students. The teachers are friendly and guide students well in their studies. The school maintains good discipline and encourages participation."</p>
+                    <div class="review-author">— Venkata Rami Reddy Komma Reddy</div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Oak Bridge School offers a supportive and motivating environment for students. The teachers are friendly and guide students well in their studies. The school maintains good discipline and encourages participation in various activities."</p>
+                    <div class="review-author">— GAMEING WITH DHANU Dhanunjay</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h5>Oak Bridge School</h5>
+
+http://googleusercontent.com/map_location_reference/1
+                    <p>[Oak Bridge school](http://googleusercontent.com/map_location_reference/0) is committed to building exceptional discipline, academic clarity, and holistic values for children across Macherla.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Campus Contact Details</h5>
+                    <p>?? Behind R&B Bungalow, 13th Ward, Macherla, Andhra Pradesh 522426</p>
+                    <p>?? Phone Helpline: +91 97032 81549</p>
+                    <p>?? Plus Code: FCFP+PV Macherla, AP</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Institutional Hours</h5>
+                    <p>Standard Operating Hours:<br>Monday - Saturday: 8:00 AM – 7:30 PM</p>
+                    <p style="color: #ef4444;">Sundays: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Oak Bridge School Admissions Center. All Rights Reserved. Designed for maximum interface clarity.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function processApplicationForm(event) {
+            event.preventDefault();
+            const parent = document.getElementById('parent_name').value;
+            const student = document.getElementById('student_name').value;
+            
+            alert(`Thank you, ${parent}! The admission enquiry profile for "${student}" has been logged successfully. An administrative representative from Oak Bridge School will follow up on your contact number shortly.`);
+            
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
